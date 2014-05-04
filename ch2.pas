@@ -20,5 +20,5 @@ var
 begin
 	area := lawnlength * lawnwidth - houselength * housewidth;
 	time := area div ftperhour;
-	writeln('Area to be mowed', area, 'time required ', time);
+	writeln('Area to be mowed ', area, ' time required ', time);
 end.
