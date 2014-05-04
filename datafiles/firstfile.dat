@@ -1,0 +1,21 @@
+*******************************************************************************
+                WELCOME TO THE SBCC COMPUTER SCIENCE PASCAL LAB.
+Congratulations!!!!!!!!!!!  You're becoming a pro.  !!!!!!!!!!!!snoitalutargnoC
+What follows is a list of file naming conventions.  You are about to copy the
+example1.pas file into your directory.  The remaining files will be created
+from the compile and run commands that you will enter further along in
+this exercise.  
+
+        example1.pas   = main program (source file).     
+        example1       = executable file (object file).
+        firstfile.dat  = a file containing data.
+
+NOTE:  The only files that you should less or lpr are those ending with the
+       .pas or .dat extensions.
+
+NOW!!! Send a copy of this file to the printer as follows:  lpr firstfile.dat
+
+Take not of your station number and use the GoPrint station next to the printer to release your print job.
+
+Staple this printout to your assignment.
+*******************************************************************************
