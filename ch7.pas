@@ -33,8 +33,12 @@ program ch7(input, output, out6, data6);
 }
 
 var
+	out6, data6: text;
 	balance, interest, total: Integer;
 begin
+
+	reset(out6);
+	reset(data6);
 
 {	writeln('Please enter initial balances (five)');
 	// writeln('B')
