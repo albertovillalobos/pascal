@@ -1,9 +1,8 @@
-
-program chapter6assignment(input, output);
+program ch10 (data9cust, data9apts, output);
 {
 	Alberto Villalobos
-	February 19, 2014
-	Chapter 6 assignment
+	April 20, 2014
+	Chapter 10 assignment
 
 	Description: A users fills out a string of 30 characters, y or n, 
 	representing a feature they desire, then there is a 20 character
@@ -22,78 +21,94 @@ program chapter6assignment(input, output);
 
 	level 0
 		initialize variables
-		while more classes
-			get classid & size
-			see if largest or smallest
-			compute totals
-		print results
+		read customer file into array
+		foreach line put into array
+			compare arrays
+			ouput 		 
+	
 
 	level 1
 		initialize variables
-			set count to 0
-			set total to 0
-			set smallsize to maxint
-			set largesize to 0
-		see if largest or smallest
-			if classsize > largesize
-				set largesize to classsize
-				set largeid to classid
-			if classize < smallsize
-				set smallsize to classize
-				set smallid to classid
-
-		computer totals
-			add classize to total
-			add 1 to count
+		readcustomer
+		foreach customer
+			compare against each answer
+			add to the total
+			divide over total amount
+			ouput percentage
+			if over 80%, output possible
+			print like: 
+				address noOfMatches Possibility
+			
+	level 2
 		
-		print results
-			print smallid & smallsize
-			print largeid and largesize
-			print total/count			
+			
 }
-var count, total, classid, classsize, smallsize, smallid, largesize, largeid : integer;
+
+{variables}
+type
+	myArray = Array[1..30] of char;
+var
+	data9cust, data9apts: text;
+	i, matches: integer;
+	customer, apartments, address, decision : char;
+	customerArray, apartmentsArray:myArray;
 	
 
+
+{match stuff}
+
+{begin program}
 begin
-	count := 0;
-	total := 0;
-	largeid := 0;
-	largesize := 0;
-	smallsize := 200000;
-	smallid := 0;
 
-	writeln('Please enter pairs of values as classid classsize');
-	writeln('Do a new line every three pairs, and after the las value');
-	writeln('Press <ctrl>+D to finalize your input');
-	while (not eof) do
-	begin
-		{read two vars}
-		read(classid);
-		read(classsize);
-
-		{check if largest}
-		if (classsize > largesize)  then
-		begin
-			largesize := classsize;
-			largeid := classid;			
-		end;
-
-		if (classsize < smallsize) then
-		begin						
-			smallsize := classsize;
-			smallid := classid;
-		end;
-		
-		if eoln then readln;
-		
-		{sums}
-		total := total + classsize;
-		count := count + 1;		
-	end;
-
-	writeln('The smallest class is: ',smallid, ' with ', smallsize, ' students');
-	writeln('The largest class is: ',largeid, ' with ', largesize, ' students');
-	writeln('The average size per class is: ', (total/count):5:2);
+	matches := 0;
 	
+	reset (data9cust);
+	reset (data9apts);
+	
+	
+	{load customer data}
+	for i:= 1 to 30 do
+	begin
+		{read file}
+		read(data9cust, customer);
+		{put customer data into the array}
+		customerArray [i]:=customer;
+		{writeln(customerArray[i]);}
+	end;
+	
+	{compare to others}
+	{loop over each line}
+	while not eof (data9apts) do
+	begin
+		{loop through each apartment}
+		for i:=1 to 30 do
+		begin
+			{read file}
+			read(data9apts, apartments);
+			{load apartments to array}
+			if apartments = customerArray[i] then
+				matches := matches + 1;
+				
+		end;		
+		while not eoln(data9apts) do
+		begin
+			read(data9apts, address);
+			write (address);			
+		end;
+		
+		if eoln (data9apts) then
+		begin
+			readln(data9apts);
+			if matches >= 24 then
+				writeln(matches, '    Possible')
+			else 
+				writeln(matches, '    no');
+				
+				
+
+			matches := 0;
+		end;		
+
+	end;
 
 end.

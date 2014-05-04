@@ -1,101 +1,48 @@
-program chapter9assignment(input, output);
+program ch7(input, output, out6, data6);
 {
+	Chapter 7 Assignment
 	Alberto Villalobos
-	February April 12, 2014
-	Chapter 9 assignment
+	March 12, 2014
 
-	Description: A use enters space separated values in pairs
-	and the program must read those pairs, one being class id
-	and the other being class size. Then, the program identifies
-	the smallest sized class and the biggest sized classed.
-	Then in the end, the program outputs the id and size of
-	the largest and smallest class, as well as an everage size 
-	per	class.
+	Description: Reads value pairs (balance, interest)
+	from a file, then produces interest charts across
+	10 years and 4 more in increments of 100.
 
 
+	Input: A file with value pairs, balance and
+	interest rate.
 
-	Input
-		pairs of classids and classids
+	Output:  A file showing interest charts as
+	described above.
 
-	Output
-		smallest class id and size
-		largest class id and size
-		average class size
+	Level 0:
+		Initialize variables
+		Read two values from file
+		Call printing procedure
+		Output to file
 
-	level 0
-		initialize variables
-		while more classes
-			get classid & size
-			see if largest or smallest
-			compute totals
-		print results
 
-	level 1
-		initialize variables
-			set count to 0
-			set total to 0
-			set smallsize to maxint
-			set largesize to 0
-		see if largest or smallest
-			if classsize > largesize
-				set largesize to classsize
-				set largeid to classid
-			if classize < smallsize
-				set smallsize to classize
-				set smallid to classid
+	for compunding use the following formula
+	A = P(1+(r/n))^(nt)
 
-		computer totals
-			add classize to total
-			add 1 to count
-		
-		print results
-			print smallid & smallsize
-			print largeid and largesize
-			print total/count			
+	A = total amount of money after n years
+	P = initial amount of money
+	r = annual rate of interest
+	t = number of years
+	n = number of times the interest is compounded per year
 }
-var count, total, classid, classsize, smallsize, smallid, largesize, largeid : integer;
-	
 
+var
+	balance, interest, total: Integer;
 begin
-	count := 0;
-	total := 0;
-	largeid := 0;
-	largesize := 0;
-	smallsize := 200000;
-	smallid := 0;
 
-	writeln('Please enter pairs of values as classid classsize');
-	writeln('Do a new line every three pairs, and after the las value');
-	writeln('Press <ctrl>+D to finalize your input');
-	while (not eof) do
-	begin
-		{read two vars}
-		read(classid);
-		read(classsize);
-
-		{check if largest}
-		if (classsize > largesize)  then
-		begin
-			largesize := classsize;
-			largeid := classid;			
-		end;
-
-		if (classsize < smallsize) then
-		begin						
-			smallsize := classsize;
-			smallid := classid;
-		end;
-		
-		if eoln then readln;
-		
-		{sums}
-		total := total + classsize;
-		count := count + 1;		
-	end;
-
-	writeln('The smallest class is: ',smallid, ' with ', smallsize, ' students');
-	writeln('The largest class is: ',largeid, ' with ', largesize, ' students');
-	writeln('The average size per class is: ', (total/count):5:2);
+{	writeln('Please enter initial balances (five)');
+	// writeln('B')
+	writeln('Balance', 'Rate(%)', );
 	
+	while not eof do
+	begin
+		read(tempBalance);
 
+	end;}
 end.
