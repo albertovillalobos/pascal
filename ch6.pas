@@ -57,7 +57,6 @@ var count, total, classid, classsize, smallsize, smallid, largesize, largeid : i
 	
 
 begin
-
 	writeln('Please enter calls ids and class size in pairs, eg: 001 15');
 	writeln('Press ctrl+D when you are done');
 	count := 0;

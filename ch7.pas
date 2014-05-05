@@ -1,4 +1,5 @@
 program ch7(input, output, out6, data6);
+
 {
 	Chapter 7 Assignment
 	Alberto Villalobos
@@ -32,21 +33,72 @@ program ch7(input, output, out6, data6);
 	n = number of times the interest is compounded per year
 }
 
+
+{
+	Print ChartLine
+		Prints an interst line for a given balance and interest 
+	@ param 
+		balance
+		interest
+}
+
+
+
+
+
+
+procedure printChart(balance : real; interest : real);
+{
+	Print Chart
+		Prints a 5 line interest chart given a balance and interest
+
+	@param
+		balance
+		interest
+
+	NOTE: First make this do the whole thing, then refactor to
+	a different procedure.
+}	
+var
+	i, j, k: integer;
+	newBalance : real;
+
+begin
+	for i := 0 to 4 do
+	begin
+		write(balance:5:2, ' ');
+		write(interest:5:2, ' ');
+		balance := balance + 100;
+
+		for j := 0 to 10 do
+		begin
+			write(j,' ');
+		end;
+		writeln('');
+	end;
+	
+end;
+
+
+
+
 var
 	out6, data6: text;
-	balance, interest, total: Integer;
+	balance, interest, total: real;
 begin
 
-	reset(out6);
 	reset(data6);
 
-{	writeln('Please enter initial balances (five)');
-	// writeln('B')
-	writeln('Balance', 'Rate(%)', );
-	
-	while not eof do
+	while not eof(data6) do
 	begin
-		read(tempBalance);
+		writeln('year');
+		writeln('Balance Rate% 1 2 3 4 5 6 7 8 9 10');		
+		read(data6, balance);
+		read(data6, interest);
+		{writeln('Balance: ', balance:5:2,' Interest ', interest:5:2);		}
+		printChart(balance, interest);
+		writeln('');
+		if eoln(data6) then readln(data6);
+	end;
 
-	end;}
 end.
