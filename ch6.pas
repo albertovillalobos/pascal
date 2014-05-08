@@ -53,6 +53,8 @@ program chapter6assignment(INPUT,OUTPUT);
 			print largeid and largesize
 			print total/count			
 }
+
+
 var count, total, classid, classsize, smallsize, smallid, largesize, largeid : integer;
 	
 
