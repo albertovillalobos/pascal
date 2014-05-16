@@ -1,4 +1,4 @@
-program ch9(input, output, data8);
+program ch9(input, output, data8, out8);
 
 {
 	Chapter 8 Assignment
@@ -41,6 +41,14 @@ program ch9(input, output, data8);
 
 
 }
+
+{main program vars}
+var
+	data8,out8: Text;
+	letterCode: Char;
+	a, b, c, d: Integer;
+
+
 
 function avSqrSum(a,b,c,d : integer): Real;
 var
@@ -95,38 +103,32 @@ var
  	valid: Integer; 
 begin
 	valid := inRange(a,b,c,d);
-	writeln('Data Line':9, letterCode:4, a:4, b:4, c:4, d:4);
+	writeln(out8, 'Data Line':9, letterCode:4, a:4, b:4, c:4, d:4);
 
 	if valid = 1 then
 	begin
 		case letterCode of
-			'S': writeln(sqrSum(a,b,c,d):6,'Sum of squares':15);
-			'C': writeln(cubeSum(a,b,c,d):6,'Sum of cubes':15);
-			'A': writeln(avSqrSum(a,b,c,d):6:0,'Average of squares':15);
+			'S': writeln(out8,sqrSum(a,b,c,d):6,'Sum of squares':15);
+			'C': writeln(out8,cubeSum(a,b,c,d):6,'Sum of cubes':15);
+			'A': writeln(out8,avSqrSum(a,b,c,d):6:0,'Average of squares':20);
 			else 
 				writeln('not found');
 		end							
 	end
 	else
 	begin
-		writeln('Invalid Data');
+		writeln(out8,'Invalid Data');
 	end;
 
-	writeln(' ');
+	writeln(out8,' ');
 end;
-
-{main program vars}
-var
-	data8: Text;
-	letterCode: Char;
-	a, b, c, d: Integer;
 
 
 
 {main program}	
 begin
 	reset(data8, 'datafiles/data8.dat');
-
+	rewrite(out8, 'outputfiles/out8.dat');
 
 	while not eof(data8) do
 	begin
