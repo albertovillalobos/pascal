@@ -18,9 +18,24 @@ program ch7(input, output, out6, data6);
 
 	Level 0:
 		Initialize variables
-		Read two values from file
-		Call printing procedure
-		Output to file
+		Read Loop
+			Read two values
+			Print table
+			For every year use the compound function
+
+	Level 1:
+		Initialize variables
+		Reset Input
+		Rewrite Output
+		Read Input with not EOT loop
+			Each two inputs:
+				Chart procedure
+					Compound function
+						Exponentiate function
+
+
+
+
 
 
 	for compunding use the following formula
