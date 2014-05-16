@@ -1,0 +1,58 @@
+Number of Intervals to monitor:   5
+------------------------------------
+Process   1   pressure:    5001
+Process   2   pressure:    5002
+Process   3   pressure:    4000
+Process   4   pressure:      12
+Process   5   pressure:      10
+Process   6   pressure:     500
+Danger! Overpressure of: 5002
+Danger! Vacumum of: 10
+Low pressure is: 10
+High pressure is: 5002
+average pressure is:   2421
+------------------------------------
+Process   1   pressure:       4
+Process   2   pressure:    5002
+Process   3   pressure:    4000
+Process   4   pressure:      20
+Process   5   pressure:      15
+Process   6   pressure:     500
+Danger! Overpressure of: 5002
+Danger! Vacumum of: 4
+Low pressure is: 4
+High pressure is: 5002
+average pressure is:   1590
+------------------------------------
+Process   1   pressure:       4
+Process   2   pressure:    4900
+Process   3   pressure:    4000
+Process   4   pressure:      25
+Process   5   pressure:      20
+Process   6   pressure:     500
+Danger! Vacumum of: 4
+Low pressure is: 4
+High pressure is: 4900
+average pressure is:   1575
+------------------------------------
+Process   1   pressure:      15
+Process   2   pressure:    4900
+Process   3   pressure:    5040
+Process   4   pressure:      30
+Process   5   pressure:      25
+Process   6   pressure:     500
+Danger! Overpressure of: 5040
+Low pressure is: 15
+High pressure is: 5040
+average pressure is:   1752
+------------------------------------
+Process   1   pressure:      15
+Process   2   pressure:    4900
+Process   3   pressure:    4800
+Process   4   pressure:      35
+Process   5   pressure:      30
+Process   6   pressure:     500
+Low pressure is: 15
+High pressure is: 4900
+average pressure is:   1713
+------------------------------------

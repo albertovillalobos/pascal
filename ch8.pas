@@ -8,9 +8,11 @@ program ch8(data7, out7);
 	pressure monitoring system.
 
 
-	Input: A file that contains
+	Input: A file that contains intervals to check
+	and line separated value groups.
 
-	Output: On screen success or error message	
+	Output: A file that contains the output of
+	pressures, warnings and summary.
 
 	level 0:
 		Initialize variables
@@ -25,14 +27,20 @@ program ch8(data7, out7);
 		Print average (sum/amount of values)
 }
 
+{main program type}
 type
 	ary = array[1..6] of integer;
 
+{main program vars}
+var
+	data7, out7: Text;
+	intervalCount, i, intervals, a, b, c, d, e, f: Integer;
+	pressures : ary;
 
 {print separator}
 procedure printSeparator();
 begin
-	writeln('------------------------------------');
+	writeln(out7,'------------------------------------');
 	
 end;
 
@@ -49,7 +57,7 @@ begin
 	for count := 1 to 6 do
 	begin
 		sum:= sum + pressures[count];
-		writeln('Process':7, count:4, 'pressure:':12,pressures[count]:8);
+		writeln(out7,'Process':7, count:4, 'pressure:':12,pressures[count]:8);
 		if pressures[count] > highest then
 		begin
 			highest := pressures[count];
@@ -68,33 +76,32 @@ begin
 	{print summary}
 	if highest > 5000 then
 	begin
-		writeln('Danger! Overpressure of: ', highest);
+		writeln(out7,'Danger! Overpressure of: ', highest);
 	end;
 
 	if lowest < 14 then
 	begin
-		writeln('Danger! Vacumum of: ', lowest);
+		writeln(out7,'Danger! Vacumum of: ', lowest);
 		
 	end;
 
-	writeln('Low pressure is: ',lowest);
-	writeln('High pressure is: ',highest);
-	writeln('average pressure is: ', average:6:0);
+	writeln(out7,'Low pressure is: ',lowest);
+	writeln(out7,'High pressure is: ',highest);
+	writeln(out7,'average pressure is: ', average:6:0);
 
 end;
 
 
-{main program}
-var
-	data7, out7: Text;
-	intervalCount, i, intervals, a, b, c, d, e, f: Integer;
-	pressures : ary;
 
+
+{main program}
 begin
 	intervalCount:=0;
 	Reset(data7,'datafiles/data7.dat');
+	Rewrite(out7, 'outputfiles/out7.dat');
+
 	read(data7, intervals);
-	writeln('Number of Intervals to monitor:',intervals:4);
+	writeln(out7,'Number of Intervals to monitor:',intervals:4);
 	printSeparator();
 	readln(data7);
 	while (not eof(data7)) and (intervalCount < intervals) do
@@ -107,8 +114,6 @@ begin
 
 		printProcess(pressures);
 		printSeparator();
-
-
 
 		{read new line}
 		readln(data7);
