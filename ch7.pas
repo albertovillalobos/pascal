@@ -33,6 +33,42 @@ program ch7(input, output, out6, data6);
 	n = number of times the interest is compounded per year
 }
 
+{exponentiate function}
+function exponentiate(number, exponent: Real): Real;
+var
+	exponentiateTotal: Real;
+begin
+
+	exponentiateTotal := exp(exponent*ln( number));
+	exponentiate := exponentiateTotal;
+	
+end;
+
+
+{calculate compound interest function}
+function calculateCompoundInterest(initialAmount, annualRate, yearNumber: real): Real;
+var
+	compoundTotal: real;
+begin
+{
+	for compunding use the following formula
+	A = P(1+(r/n))^(nt)
+
+	A = total amount of money after n years
+	P = initial amount of money
+	r = annual rate of interest
+	t = number of years
+	n = number of times the interest is compounded per year
+}
+	
+	compoundTotal:= (1 + (annualRate/100));
+	compoundTotal:= exponentiate(compoundTotal, yearNumber);
+	compoundTotal:= initialAmount * compoundTotal;
+	calculateCompoundInterest := compoundTotal;
+	
+end;
+
+
 
 procedure printChart(balance : real; interest : real);
 {
@@ -59,39 +95,19 @@ begin
 		write(balance:5:0);
 		write(interest:6:0);
 		write('':2);
-		balance := balance + 100;
 
 		for j := 1 to 10 do
 		begin
-			write(j:4);
+			{write(j:4);}
+			write(calculateCompoundInterest(balance, interest, j):6:0);
 		end;
+		balance := balance + 100;
 		writeln('');
 	end;
 	
 end;
 
 
-{calculate compound interest function}
-function calculateCompoundInterest(initialAmount, annualRate, monthNumber: integer): Real;
-var
-	compoundTotal: real;
-begin
-{
-	for compunding use the following formula
-	A = P(1+(r/n))^(nt)
-
-	A = total amount of money after n years
-	P = initial amount of money
-	r = annual rate of interest
-	t = number of years
-	n = number of times the interest is compounded per year
-}
-
-	calculateCompoundInterest := compoundTotal;
-
-
-	
-end;
 
 
 
@@ -107,7 +123,7 @@ begin
 	while not eof(data6) do
 	begin
 		writeln('year':35);
-		writeln('Balance':7,'Rate%':6,'1':4,'2':4,'3':4,'4':4,'5':4,'6':4,'7':4,'8':4,'9':4,'10':4);		
+		writeln('Balance':7,'Rate%':6,'1':6,'2':6,'3':6,'4':6,'5':6,'6':6,'7':6,'8':6,'9':6,'10':6);		
 		read(data6, balance);
 		read(data6, interest);
 		{writeln('Balance: ', balance:5:2,' Interest ', interest:5:2);		}
