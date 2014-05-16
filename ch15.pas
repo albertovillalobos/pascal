@@ -130,7 +130,7 @@ begin
 	x := 1;
 	matrixHeight := 0;
 
-	reset(data11);
+	reset(data11, 'datafiles/data11.dat');
 	while not eof(data11) do
 	begin
 
