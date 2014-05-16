@@ -34,19 +34,6 @@ program ch7(input, output, out6, data6);
 }
 
 
-{
-	Print ChartLine
-		Prints an interst line for a given balance and interest 
-	@ param 
-		balance
-		interest
-}
-
-
-
-
-
-
 procedure printChart(balance : real; interest : real);
 {
 	Print Chart
@@ -62,17 +49,21 @@ procedure printChart(balance : real; interest : real);
 var
 	i, j, k: integer;
 	newBalance : real;
+	numberToString: string(255);
 
 begin
 	for i := 0 to 4 do
 	begin
-		write(balance:5:2, ' ');
-		write(interest:5:2, ' ');
+		{str(balance:5:0, numberToString);}
+		
+		write(balance:5:0);
+		write(interest:6:0);
+		write('':2);
 		balance := balance + 100;
 
-		for j := 0 to 10 do
+		for j := 1 to 10 do
 		begin
-			write(j,' ');
+			write(j:4);
 		end;
 		writeln('');
 	end;
@@ -80,24 +71,47 @@ begin
 end;
 
 
+{calculate compound interest function}
+function calculateCompoundInterest(initialAmount, annualRate, monthNumber: integer): Real;
+var
+	compoundTotal: real;
+begin
+{
+	for compunding use the following formula
+	A = P(1+(r/n))^(nt)
+
+	A = total amount of money after n years
+	P = initial amount of money
+	r = annual rate of interest
+	t = number of years
+	n = number of times the interest is compounded per year
+}
+
+	calculateCompoundInterest := compoundTotal;
 
 
+	
+end;
+
+
+
+{main program}
 var
 	out6, data6: text;
 	balance, interest, total: real;
 begin
 
-	reset(data6);
+	reset(data6, 'datafiles/data6.dat');
+
 
 	while not eof(data6) do
 	begin
-		writeln('year');
-		writeln('Balance Rate% 1 2 3 4 5 6 7 8 9 10');		
+		writeln('year':35);
+		writeln('Balance':7,'Rate%':6,'1':4,'2':4,'3':4,'4':4,'5':4,'6':4,'7':4,'8':4,'9':4,'10':4);		
 		read(data6, balance);
 		read(data6, interest);
 		{writeln('Balance: ', balance:5:2,' Interest ', interest:5:2);		}
 		printChart(balance, interest);
-		writeln('');
 		if eoln(data6) then readln(data6);
 	end;
 
